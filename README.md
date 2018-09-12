@@ -57,3 +57,20 @@ def callback2(channel):
                 t1=2
         elif (t1==2):
                 t1=0.5
+
+def callback3(channel):
+        global flag;
+        if (flag==0):
+                flag =1
+        elif (flag ==1):
+                flag=0
+
+def callback4(channel):
+        global flag;
+        global timer;
+        global counter;
+        global disp
+        counter =0
+        print('|   Time   |  Timer   | Pot   | Temp  | Light |'.format(*range(5)))
+        for i in range (5):
+                 print('| {0:>4} | {1:>4} | {2:>4}V | {3:>4}C | {4:>4}% |'.format(*disp[i]))
