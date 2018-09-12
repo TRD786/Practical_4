@@ -78,4 +78,23 @@ def callback4(channel):
 GPIO.add_event_detect(but1, GPIO.BOTH, callback=callback1, bouncetime=200)
 GPIO.add_event_detect(but2, GPIO.BOTH, callback=callback2, bouncetime=200)
 GPIO.add_event_detect(but3, GPIO.BOTH, callback=callback3, bouncetime=200)
-GPIO.add_event_detect(but4, GPIO.BOTH, callback=callback4, bouncetime=200)                 
+GPIO.add_event_detect(but4, GPIO.BOTH, callback=callback4, bouncetime=200) 
+
+while True:
+    # Read all the ADC channel values in a list.
+                for i in range(5):
+        # The read_adc function will get the value of the specified channel (0-7).
+                        values[i] = mcp.read_adc(i)
+        # Print the ADC values.
+                time.sleep(t1)
+                timer = timer + t1
+                values[0] = time.asctime(time.localtime(time.time()))[11:19];
+                values[1] = time.strftime('%H:%M:%S', time.gmtime(timer))
+                values[2] = (values[2]*3.3)/1023;
+                values[3] = (values[3]*3.3/1024-0.5)/0.01
+                values[4] = (values[4]*100)/1023
+                if(flag==0):
+                        print('| {0:>4} | {1:>4} | {2:>4}V | {3:>4}C | {4:>4}% |'.format(*values))
+                elif (counter<5):
+                        disp[counter]=(values[0],values[1],values[2],values[3],values[4])
+                        counter+=1
