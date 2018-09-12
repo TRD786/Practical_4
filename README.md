@@ -74,3 +74,8 @@ def callback4(channel):
         print('|   Time   |  Timer   | Pot   | Temp  | Light |'.format(*range(5)))
         for i in range (5):
                  print('| {0:>4} | {1:>4} | {2:>4}V | {3:>4}C | {4:>4}% |'.format(*disp[i]))
+                 
+GPIO.add_event_detect(but1, GPIO.BOTH, callback=callback1, bouncetime=200)
+GPIO.add_event_detect(but2, GPIO.BOTH, callback=callback2, bouncetime=200)
+GPIO.add_event_detect(but3, GPIO.BOTH, callback=callback3, bouncetime=200)
+GPIO.add_event_detect(but4, GPIO.BOTH, callback=callback4, bouncetime=200)                 
