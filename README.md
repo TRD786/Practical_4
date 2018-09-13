@@ -80,6 +80,11 @@ GPIO.add_event_detect(but2, GPIO.BOTH, callback=callback2, bouncetime=200)
 GPIO.add_event_detect(but3, GPIO.BOTH, callback=callback3, bouncetime=200)
 GPIO.add_event_detect(but4, GPIO.BOTH, callback=callback4, bouncetime=200) 
 
+print('Reading MCP3008 values, press Ctrl-C to quit...')
+# Print nice channel column headers.
+print('|   Time   |  Timer   | Pot   | Temp  | Light |'.format(*range(5)))
+print('-' * 57)
+
 while True:
     # Read all the ADC channel values in a list.
                 for i in range(5):
